@@ -1,3 +1,8 @@
+__import__('pysqlite3')
+import sys
+import pysqlite3
+sys.modules['sqlite3'] = sys.modules["pysqlite3"]
+
 import streamlit as st
 
 from langchain_core.messages.chat import ChatMessage
