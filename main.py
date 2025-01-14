@@ -17,6 +17,15 @@ from myRetriever import init_retriever
 from dotenv import load_dotenv
 load_dotenv()
 
+from google.oauth2 import service_account
+from google.cloud import storage
+
+# Create API client.
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"]
+)
+client = storage.Client(credentials=credentials)
+
 
 #---------------------------------#
 #---------- UI Settings ----------#
