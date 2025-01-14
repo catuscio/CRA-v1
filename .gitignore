@@ -1,0 +1,7 @@
+.env
+__pycache__/
+gen-lang-client-0009382783-cf0bfb2d1c0c.json
+RAG.py
+tutorial.ipynb
+data/
+.cache/
