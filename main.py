@@ -14,16 +14,21 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from load_prompts import load_prompt
 from myRetriever import init_retriever
 
+from google.oauth2 import service_account
+from vertexai import generative_models
+from vertexai import VertexAI
+
 from dotenv import load_dotenv
 load_dotenv()
-
-from google.oauth2 import service_account
 
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"]
 )
-print(credentials)
+# VertexAI 초기화
+vertex_ai = VertexAI(
+    credentials=credentials,
+)
 
 #---------------------------------#
 #---------- UI Settings ----------#
