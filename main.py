@@ -1,7 +1,23 @@
+#---------------------------------#
+#-------- Deploy Settings --------#
+#---------------------------------#
 __import__('pysqlite3')
 import sys
 import pysqlite3
 sys.modules['sqlite3'] = sys.modules["pysqlite3"]
+
+from google.oauth2 import service_account
+import google.generativeai as genai  # genai import 추가
+
+# Create API client.
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"],
+)
+
+# Gemini 구성
+genai.configure(
+    credentials=credentials,
+)
 
 import streamlit as st
 
@@ -14,21 +30,9 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from load_prompts import load_prompt
 from myRetriever import init_retriever
 
-from google.oauth2 import service_account
-import google.generativeai as genai  # genai import 추가
-
 from dotenv import load_dotenv
 load_dotenv()
 
-# Create API client.
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"],
-)
-
-# Gemini 구성
-genai.configure(
-    credentials=credentials,
-)
 
 #---------------------------------#
 #---------- UI Settings ----------#
