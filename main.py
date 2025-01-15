@@ -15,9 +15,6 @@ from load_prompts import load_prompt
 from myRetriever import init_retriever
 
 from google.oauth2 import service_account
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
 import google.generativeai as genai  # genai import 추가
 
 from dotenv import load_dotenv
