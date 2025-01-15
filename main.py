@@ -18,6 +18,7 @@ from google.oauth2 import service_account
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
+import google.generativeai as genai  # genai import 추가
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -66,10 +67,11 @@ def create_chain() :
     # prompt
     prompt = load_prompt("prompts/basic.yaml", encoding="cp949")
 
-    # model
+    # model - 인증정보 추가
     llm = ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash",
-        temperature=0
+        model="gemini-1.5-flash",  # flash 대신 pro 권장
+        temperature=0,
+        credentials=credentials
     )
 
     # output parser
