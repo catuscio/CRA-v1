@@ -15,14 +15,17 @@ from load_prompts import load_prompt
 from myRetriever import init_retriever
 
 from google.oauth2 import service_account
-import google.generativeai as genai
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
 
 from dotenv import load_dotenv
 load_dotenv()
 
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"]
+    st.secrets["gcp_service_account"],
+    scopes=['https://www.googleapis.com/auth/cloud-platform']
 )
 
 # Gemini 구성
