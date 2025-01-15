@@ -29,7 +29,6 @@ credentials = service_account.Credentials.from_service_account_info(
 # Gemini 구성
 genai.configure(
     credentials=credentials,
-    project="gen-lang-client-0009382783"
 )
 
 #---------------------------------#
