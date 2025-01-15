@@ -16,6 +16,7 @@ google-api-core==2.24.0
 google-api-python-client==2.158.0
 google-auth==2.37.0
 google-auth-httplib2==0.2.0
+google_auth_oauthlib-1.2.1
 google-generativeai==0.8.3
 googleapis-common-protos==1.66.0
 pysqlite3-binary
