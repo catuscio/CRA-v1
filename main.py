@@ -15,6 +15,7 @@ from load_prompts import load_prompt
 from myRetriever import init_retriever
 
 from google.oauth2 import service_account
+import google.generativeai as genai
 
 from dotenv import load_dotenv
 load_dotenv()
