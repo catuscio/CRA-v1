@@ -8,6 +8,8 @@ sys.modules['sqlite3'] = sys.modules["pysqlite3"]
 
 from google.oauth2 import service_account
 import google.generativeai as genai  # genai import 추가
+from dotenv import load_dotenv
+load_dotenv()
 
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(
@@ -29,9 +31,6 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 from load_prompts import load_prompt
 from myRetriever import init_retriever
-
-from dotenv import load_dotenv
-load_dotenv()
 
 
 #---------------------------------#
